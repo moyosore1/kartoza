@@ -28,3 +28,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = ["phone_number", "home_address", "longitude", "latitude"]
+
+
+    def full_name(self):
+        return f'{self.first_name} {self.last_name}'
