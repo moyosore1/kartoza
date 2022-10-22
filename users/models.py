@@ -1,6 +1,5 @@
 from django.contrib.auth.models import (
     AbstractBaseUser,
-    BaseUserManager,
     PermissionsMixin,
 )
 from django.db import models
@@ -22,8 +21,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_superuser = models.BooleanField(default=False)
     phone_number = models.CharField(max_length=15)
     home_address = models.CharField(max_length=70)
-    longitude = models.DecimalField(max_digits=5, decimal_places=7)
-    latitude = models.DecimalField(max_digits=5, decimal_places=7)
+    longitude = models.DecimalField(max_digits=11, decimal_places=7)
+    latitude = models.DecimalField(max_digits=11, decimal_places=7)
 
     objects = UserManager()
 
