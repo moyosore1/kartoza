@@ -1,5 +1,5 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect, render
 
 from .forms import AccountForm
 
@@ -18,6 +18,6 @@ def edit_profile_page(request):
         if form.is_valid():
             form.save()
             return redirect("my_profile_page")
-    
-    context = {'form':form}
+
+    context = {"form": form}
     return render(request, "users/edit_profile.html", context)
