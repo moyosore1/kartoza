@@ -7,8 +7,6 @@ class UserManager(BaseUserManager):
         email,
         phone_number,
         home_address,
-        longitude,
-        latitude,
         password=None,
         **other_fields
     ):
@@ -19,8 +17,6 @@ class UserManager(BaseUserManager):
             email=self.normalize_email(email),
             phone_number=phone_number,
             home_address=home_address,
-            longitude=longitude,
-            latitude=latitude,
             **other_fields
         )
         user.set_password(password)
@@ -32,16 +28,12 @@ class UserManager(BaseUserManager):
         email,
         phone_number,
         home_address,
-        longitude,
-        latitude,
         password,
     ):
         user = self.create_user(
             email=self.normalize_email(email),
             phone_number=phone_number,
             home_address=home_address,
-            longitude=longitude,
-            latitude=latitude,
             password=password,
         )
         user.is_admin = True
